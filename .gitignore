@@ -176,3 +176,5 @@ cython_debug/
 !.gitkeep
 
 logs/
+
+secrets.toml

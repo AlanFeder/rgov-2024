@@ -1,7 +1,5 @@
-import os
-
 import streamlit as st
-from dotenv import load_dotenv
+
 
 from b1_rag_fns.b1_all_rag_fns import do_rag
 
@@ -16,9 +14,7 @@ def run_app():
     )
     st.title("Use Streamlit to Run RAG on the previous R/Gov Talks")
 
-    load_dotenv()
-
-    oai_api_key = os.getenv("OPENAI_API_KEY")
+    oai_api_key = st.secrets["OPENAI_API_KEY"]
 
     with st.sidebar:
         model_name = st.radio(
