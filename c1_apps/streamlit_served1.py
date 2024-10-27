@@ -43,45 +43,47 @@ def run_app():
 
     # Get user input
     user_input = st.text_input("Enter your question:")
-    if user_input:
-        response, retrieved_docs = do_rag(
-            user_input=user_input,
-            oai_api_key=oai_api_key,
-            stream=True,
-            n_results=n_results,
-            model_name=model_name,
-        )
+    button1 = st.button(label="Submit!", key="button1")
+    if button:
+        if user_input:
+            response, retrieved_docs = do_rag(
+                user_input=user_input,
+                oai_api_key=oai_api_key,
+                stream=True,
+                n_results=n_results,
+                model_name=model_name,
+            )
 
-        # Display the response
-        st.write_stream(response)
+            # Display the response
+            st.write_stream(response)
 
-        st.divider()
-        st.subheader("RAG-identified relevant videos")
-        n_vids = len(retrieved_docs)
-        if n_vids == 0:
-            st.markdown("No relevant videos identified")
-        elif n_vids == 1:
-            _, vid_c1, _ = st.columns(3)
-            vid_containers = [vid_c1]
-        elif n_vids == 2:
-            _, vid_c1, vid_c2, _ = st.columns([1 / 6, 1 / 3, 1 / 3, 1 / 6])
-            vid_containers = [vid_c1, vid_c2]
-        elif n_vids > 2:
-            vid_containers = st.columns(n_vids)
-        for i, vid_info in enumerate(retrieved_docs):
-            vid_container = vid_containers[i]
-            with vid_container:
-                vid_title = vid_info["Title"]
-                vid_speaker = vid_info["Speaker"]
-                sim_score = 100 * vid_info["score"]
-                vid_url = vid_info["VideoURL"]
-                st.markdown(
-                    f"**{vid_title}**\n\n*{vid_speaker}*\n\nYear: {vid_info['Year']}"
-                )
-                st.caption(f"Similarity Score: {sim_score:.0f}/100")
-                st.video(vid_url)
-                with st.expander(label="Transcript", expanded=False):
-                    st.markdown(vid_info["transcript"])
+            st.divider()
+            st.subheader("RAG-identified relevant videos")
+            n_vids = len(retrieved_docs)
+            if n_vids == 0:
+                st.markdown("No relevant videos identified")
+            elif n_vids == 1:
+                _, vid_c1, _ = st.columns(3)
+                vid_containers = [vid_c1]
+            elif n_vids == 2:
+                _, vid_c1, vid_c2, _ = st.columns([1 / 6, 1 / 3, 1 / 3, 1 / 6])
+                vid_containers = [vid_c1, vid_c2]
+            elif n_vids > 2:
+                vid_containers = st.columns(n_vids)
+            for i, vid_info in enumerate(retrieved_docs):
+                vid_container = vid_containers[i]
+                with vid_container:
+                    vid_title = vid_info["Title"]
+                    vid_speaker = vid_info["Speaker"]
+                    sim_score = 100 * vid_info["score"]
+                    vid_url = vid_info["VideoURL"]
+                    st.markdown(
+                        f"**{vid_title}**\n\n*{vid_speaker}*\n\nYear: {vid_info['Year']}"
+                    )
+                    st.caption(f"Similarity Score: {sim_score:.0f}/100")
+                    st.video(vid_url)
+                    with st.expander(label="Transcript", expanded=False):
+                        st.markdown(vid_info["transcript"])
 
         st.divider()
 
