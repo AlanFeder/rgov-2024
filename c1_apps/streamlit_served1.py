@@ -21,12 +21,10 @@ def run_app():
     oai_api_key = os.getenv("OPENAI_API_KEY")
 
     with st.sidebar:
-        # oai_api_key = st.text_input("OpenAI API Key", type="password")
-
         model_name = st.radio(
             label="Which GPT model\ndo you want to use?",
             options=["gpt-4o-mini", "gpt-4o"],
-            format_func=lambda x: "Cheaper" if x == "gpt-4o" else "More Accurate",
+            format_func=lambda x: "Cheaper" if x == "gpt-4o-mini" else "More Accurate",
             key="model_name",
             index=0,
             horizontal=False,
