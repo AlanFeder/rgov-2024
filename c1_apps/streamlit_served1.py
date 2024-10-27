@@ -44,7 +44,7 @@ def run_app():
     # Get user input
     user_input = st.text_input("Enter your question:")
     button1 = st.button(label="Submit!", key="button1")
-    if button:
+    if button1:
         if user_input:
             response, retrieved_docs = do_rag(
                 user_input=user_input,
