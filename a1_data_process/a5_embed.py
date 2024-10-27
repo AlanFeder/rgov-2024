@@ -1,12 +1,12 @@
-from pyprojroot import here
-from openai import OpenAI
-from dotenv import load_dotenv
-import os
 import json
+import os
+
 # from pathlib import Path
 # import shutil
 import numpy as np
-
+from dotenv import load_dotenv
+from openai import OpenAI
+from pyprojroot import here
 
 if __name__ == "__main__":
     load_dotenv()
@@ -16,7 +16,7 @@ if __name__ == "__main__":
     fp_data = here() / "data"
     fp_audio = fp_data / "audio"
 
-    with open(fp_data / "rgov_talks_v3.json", "r") as f:
+    with open(fp_data / "rgov_talks.json", "r") as f:
         dcr_data = json.load(f)
 
     all_abstracts = [vid["Abstract"] for vid in dcr_data]

@@ -1,8 +1,10 @@
-from pyprojroot import here
-from openai import OpenAI
-from dotenv import load_dotenv
-import os
 import json
+import os
+
+from dotenv import load_dotenv
+from openai import OpenAI
+from pyprojroot import here
+
 # from pathlib import Path
 # import shutil
 
@@ -44,7 +46,7 @@ if __name__ == "__main__":
 
     for vid in dcr_data:
         if not vid["Abstract"]:
-            print(vid['id0'])
+            print(vid["id0"])
             vid["Abstract"] = make_abstract(vid["transcript"], oai_client)
 
     with open(fp_data / "rgov_talks_v3.json", "w") as f:
