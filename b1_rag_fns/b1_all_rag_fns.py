@@ -301,7 +301,7 @@ def parse_1_query_no_stream(response):
         return f"Error: {response.status_code}\n{response.text}"
 
 
-def do_1_query(messages1: list[dict[str, str]], oai_api_key: str, stream: bool):
+def do_1_query(messages1: list[dict[str, str]], oai_api_key: str, stream: bool, model_name: str):
     """
     Generate a response using the specified chat completion model.
 
@@ -323,7 +323,7 @@ def do_1_query(messages1: list[dict[str, str]], oai_api_key: str, stream: bool):
         headers["Accept"] = "text/event-stream"  # Required for streaming
 
     # Model to use
-    model1 = "gpt-4o-mini"
+    model1 = model_name
 
     # Request payload
     payload = {
@@ -348,7 +348,7 @@ def do_1_query(messages1: list[dict[str, str]], oai_api_key: str, stream: bool):
     return response1
 
 
-def do_generation(query1: str, keep_texts: list[dict], oai_api_key: str, stream: bool):
+def do_generation(query1: str, keep_texts: list[dict], oai_api_key: str, stream: bool, model_name: str):
     """
     Generate the chatbot response using the specified generation client.
 
@@ -362,7 +362,7 @@ def do_generation(query1: str, keep_texts: list[dict], oai_api_key: str, stream:
     """
     user_prompt = make_user_prompt(query1, keep_texts=keep_texts)
     messages1 = set_messages(SYSTEM_PROMPT, user_prompt)
-    response = do_1_query(messages1, oai_api_key=oai_api_key, stream=stream)
+    response = do_1_query(messages1, oai_api_key=oai_api_key, stream=stream, model_name=model_name)
 
     return response
 
@@ -390,7 +390,7 @@ def calc_cost(
     return cost_cents
 
 
-def do_rag(user_input: str, oai_api_key: str, stream: bool = False, n_results: int = 3):
+def do_rag(user_input: str, oai_api_key: str, model_name: str, stream: bool = False, n_results: int = 3):
     # Load the data
     talk_info, embeds = import_data()
     # Load the model
@@ -406,6 +406,7 @@ def do_rag(user_input: str, oai_api_key: str, stream: bool = False, n_results: i
     response = do_generation(
         query1=user_input,
         keep_texts=retrieved_docs,
+        model_name=model_name,
         oai_api_key=oai_api_key,
         stream=stream,
     )

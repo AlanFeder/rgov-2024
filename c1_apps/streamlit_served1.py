@@ -20,6 +20,18 @@ def run_app():
 
     oai_api_key = os.getenv("OPENAI_API_KEY")
 
+    with st.sidebar:
+        # oai_api_key = st.text_input("OpenAI API Key", type="password")
+
+        model_name = st.radio(
+            label="Which GPT model\ndo you want to use?",
+            options=["gpt-4o-mini", "gpt-4o"],
+            format_func=lambda x: "Cheaper" if x == "gpt-4o" else "More Accurate",
+            key="model_name",
+            index=0,
+            horizontal=False,
+        )
+
     # How many results to bring to the generator
     n_results = 3
 
@@ -27,7 +39,11 @@ def run_app():
     user_input = st.text_input("Enter your question:")
     if user_input:
         response, retrieved_docs = do_rag(
-            user_input=user_input, oai_api_key=oai_api_key, stream=True, n_results=3
+            user_input=user_input,
+            oai_api_key=oai_api_key,
+            stream=True,
+            n_results=n_results,
+            model_name=model_name,
         )
 
         # Display the response
