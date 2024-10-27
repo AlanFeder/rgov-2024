@@ -1,14 +1,13 @@
-import streamlit as st
-
-
-import sys
 import os
+import sys
+
+import streamlit as st
 
 # Get the directory of the current script
 current_dir = os.path.dirname(__file__)
 
 # Move up to the parent directory and then to the cousin folder
-cousin_folder = os.path.join(current_dir, '..', 'b1_rag_fns')
+cousin_folder = os.path.join(current_dir, "..", "b1_rag_fns")
 
 # Add cousin folder to sys.path so it can be imported
 sys.path.append(os.path.abspath(cousin_folder))
