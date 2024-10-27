@@ -13,6 +13,8 @@ cousin_folder = os.path.join(current_dir, '..', 'b1_rag_fns')
 # Add cousin folder to sys.path so it can be imported
 sys.path.append(os.path.abspath(cousin_folder))
 
+from b1_all_rag_fns import do_rag
+
 
 def run_app():
     st.set_page_config(
