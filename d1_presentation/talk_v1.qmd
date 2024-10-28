@@ -121,9 +121,9 @@ format:
 
 
 - The computations need to happen _somewhere_ - Python or R needs to be installed somewhere
-  - You probably want to share your app with someone, and they need to be able to run it
-- If you see "`localhost:8000`", then all the computations are happening locally - so sending the file won't help unless they have all the data and packages
-- In-browser versions can often be a good option if you don't have a ton of data
+  - Setting up servers can be difficult
+- `localhost:8000` - doesn't help with sharing
+- In-browser versions can be helpful
   - BE CAREFUL ABOUT YOUR PASSWORDS AND API KEYS
 
 
@@ -200,7 +200,7 @@ format:
 :::: {.column width="50%"}
 
 - Started by some Stanford PhD Students in 2019
-- Purchased by Hugging Face in December 2021 ![](figs/hf_logo.png){height="0.5in"}
+- Purchased by Hugging Face ![](figs/hf_logo.png){height="0.5in"} in December 2021
 - Powers most Huggingface Spaces
 ::::
 
@@ -241,10 +241,12 @@ format:
 - Local / Self-hosted
 - Public Link, local compute (`share=True`)
 - Through Huggingface Spaces (free with basic CPU)
-  - Need a fresh Github Repo
 - In-browser (Gradio Lite)
   - I couldn't figure it out
-- Use via API
+
+##
+
+![](figs/shiny_moana.png){height="7in"}
 
 ## Shiny
 
@@ -253,7 +255,7 @@ format:
  ![](figs/shiny_python_2nd_best.png){width="6in" fig-align="center"} <!--![](figs/rstudio2posit.png){width="5in"}  -->
 
 
-## Two Types of Shiny?
+## Two Types of Shiny
 
 ::: {.columns}
 
@@ -331,7 +333,7 @@ Similar to Gradio, Streamlit
 
 ### Shiny
 
-{{< video https://shiny.posit.co/blog/posts/shiny-assistant/shiny-assistant.mp4 >}}
+![](figs/shiny_assistant.png)
 
 ::::
 
@@ -404,7 +406,7 @@ flowchart LR
     A --> X
     X -->|Yes| Y
     X -->|No| B
-        subgraph Python-Frameworks[" "]
+    subgraph Python-Frameworks[" "]
         direction LR
         B{Running a simple<br>AI model?}
         B -->|Yes| C[Use Gradio]
@@ -415,13 +417,14 @@ flowchart LR
 
     style C fill:#90EE90,color:#000000,font-weight:bold
     style H fill:#90EE90,color:#000000,font-weight:bold
-    style Y fill:#90EE90,color:#000000,font-weight:bold,font-size:22px,stroke:#000000,stroke-width:3px,width:300px
+    style E fill:#90EE90,color:#000000,font-weight:bold
+    style Y fill:#90EE90,color:#000000,font-weight:bold,font-size:22px,stroke:#000000,stroke-width:3px,width:350px,height:100px
     style B fill:#f5f5f5,color:#000000,font-weight:bold
     style F fill:#f5f5f5,color:#000000,font-weight:bold
     style A fill:#f5f5f5,color:#000000,font-weight:bold,fontSize:20px
     style X fill:#f5f5f5,color:#000000,font-weight:bold
     
-    style Python-Frameworks stroke-dasharray: 5 5
+    style Python-Frameworks fill:#e0e0e0,stroke-dasharray: 5 5
 
 ```
 
