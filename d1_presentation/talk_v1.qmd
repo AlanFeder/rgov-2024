@@ -244,10 +244,6 @@ format:
 - In-browser (Gradio Lite)
   - I couldn't figure it out
 
-##
-
-![](figs/shiny_moana.png){height="7in"}
-
 ## Shiny
 
 - 2012: Developed for R by the company formerly known as RStudio ![](figs/rstudio_logo.png){height="0.5in"}
@@ -295,6 +291,8 @@ format:
 - Documentation gives really good background/philosophy on how it works
 - Very flexible, can make almost any change you want
 
+![](figs/shiny_moana.png){height="2in"}
+
 ## Shiny - 🫤
 
 - I found it confusing, not as intuitive/"Pythonic"
@@ -304,7 +302,7 @@ format:
 
 ## Shiny Example
 
-![](figs/shiny1.png){height="6in"}
+![](figs/shiny1.png){height="6in" fig-align="center"}
 
 ## Shiny is building in Chat Components
 
