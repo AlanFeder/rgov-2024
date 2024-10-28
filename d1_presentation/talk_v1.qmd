@@ -1,0 +1,450 @@
+---
+title: "App-solutely Fabulous: A Data Scientist's Guide to Choosing Python Web Tools Wisely"
+author: "Alan Feder"
+format: 
+  revealjs:
+    theme: sky
+    transition: slide
+    slide-number: true
+    footer: "2024 Government & Public Sector R Conference - Alan Feder"
+    embed-resources: true
+---
+
+
+## Who am I?
+
+::: columns
+::: {.column width="20%"}
+![](https://github.com/AlanFeder/nyr-rag-app/blob/main/AJF_Headshot.jpg?raw=true){fig-alt="Alan Feder Headshot" width="4in"}
+:::
+
+::: {.column width="80%"}
+-   Alan Feder
+-   Staff LLM Data Scientist at Magnifi / TIFIN
+- Freelance Consultant
+- R Expat ![](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/R_logo.svg/1200px-R_logo.svg.png){height="0.5in"}  ![](https://cdn-icons-png.flaticon.com/512/664/664866.png){height="0.5in"}  ![](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png){height="0.5in"}
+- LGM ![](https://upload.wikimedia.org/wikipedia/en/thumb/7/7b/New_York_Mets.svg/1200px-New_York_Mets.svg.png){height="0.5in"}
+:::
+:::
+
+## Data Scientists in R love Shiny
+
+
+::: columns 
+:::: {.column width="50%"}
+- How do I show interactive analysis?
+- Am I stuck with copying and pasting my graphs to PowerPoint?
+::::
+
+:::: {.column width="50%"}
+::::: {.fragment}
+![](figs/shiny_logo.png)
+:::::
+::::
+:::
+
+## Python has many more options
+
+::: {.columns}
+::: {.column width="33%"}
+:::: {.fragment}
+![](figs/streamlit_logo.png){height="1.4in" fig-align="center"}
+::::
+
+:::: {.fragment}
+![](figs/gradio_logo.png){height="1.4in" fig-align="center"}
+::::
+
+:::: {.fragment}
+![](figs/shiny_logo.png){height="1.4in" fig-align="center"}
+::::
+
+:::
+
+::: {.column width="33%"}
+:::: {.fragment}
+![](figs/flask_logo.png){height="1.4in" fig-align="center"}
+::::
+
+:::: {.fragment}
+![](figs/django_logo.png){height="1.4in" fig-align="center"}
+::::
+
+:::: {.fragment}
+![](figs/jupyter_logo.png){height="1.4in" fig-align="center"}
+::::
+
+:::
+
+::: {.column width="33%"}
+:::: {.fragment}
+![](figs/dash_plotly_logo.png){height="1.4in" fig-align="center"}
+::::
+
+:::: {.fragment}
+![](https://raw.githubusercontent.com/AnswerDotAI/fasthtml/e91b9af04a3e70b0d769f2a4928fdad1f2c67620/nbs/logo.svg){height="1.4in" fig-align="center"}
+::::
+
+:::: {.fragment}
+![](figs/panel_holoviz_logo.png){height="1.4in" fig-align="center"}
+::::
+:::
+:::
+
+## Too many options
+
+[![](https://imgs.xkcd.com/comics/standards_2x.png)](https://xkcd.com/927/)
+
+## Try (some of) them!
+
+
+::: {.columns}
+:::: {.column width="33%"}
+![](figs/streamlit_logo.png){height="1.4in" fig-align="center"}
+
+![](figs/gradio_logo.png){height="1.4in" fig-align="center"}
+
+![](figs/shiny_logo.png){height="1.4in" fig-align="center"}
+::::
+
+:::: {.column width="66%"}
+
+- Let's try to make one app with three different methods
+
+- We've already had a lot of different RAG talks this conference - so see how to share your app
+ 
+::::
+
+:::
+
+## Server vs. Serverless
+
+
+- The computations need to happen _somewhere_ - Python or R needs to be installed somewhere
+  - You probably want to share your app with someone, and they need to be able to run it
+- If you see "`localhost:8000`", then all the computations are happening locally - so sending the file won't help unless they have all the data and packages
+- In-browser versions can often be a good option if you don't have a ton of data
+  - BE CAREFUL ABOUT YOUR PASSWORDS AND API KEYS
+
+
+## Streamlit
+
+
+::: {.columns}
+
+:::: {.column width="66%"}
+
+- Launched in 2019
+- Purchased by Snowflake in 2022 for $800m ![](figs/snowflake_logo.png){height="0.5in"}
+- I've been using it a lot for the past 2 years - and even used in a (NY) R Conference talk!
+::::
+
+:::: {.column width="33%"}
+![](figs/streamlit_name2.png)
+
+::::
+:::
+
+## Streamlit - 😃
+
+
+- Lots of elements to use
+  - New ones all the time
+- Very Pythonic
+  - Simple to transition from script
+
+
+## Streamlit - 🫤
+
+
+- Runs top to bottom - not at all reactive
+  - Has caching, but it gets confusing very quickly
+- Can get very slow if it gets big
+- All Streamlit apps kinda look the same
+  - Hard to tweak UI
+
+
+
+
+## Streamlit
+
+::: {.columns}
+:::: {.column width="75%"}
+[![](figs/streamlit_app1.png){height="6in"}](https://rgov-2024-ajf.streamlit.app/)
+::::
+
+:::: {.column width="25%"}
+![](figs/streamlit_host.png)
+::::
+
+:::
+
+## Streamlit-Lite
+
+
+
+- [Stlite](https://edit.share.stlite.net/)
+  - Not officially supported by Streamlit
+- Pretty easy interface to copy your Streamlit apps
+- I couldn't figure out how to do streaming
+- Slower to load, slower to run
+
+- [Link: In-Browser Streamlit](https://www.alanfeder.com/dcr_rag/streamlit_lite.html)
+
+
+## Gradio
+
+
+::: {.columns}
+
+:::: {.column width="50%"}
+
+- Started by some Stanford PhD Students in 2019
+- Purchased by Hugging Face in December 2021 ![](figs/hf_logo.png){height="0.5in"}
+- Powers most Huggingface Spaces
+::::
+
+:::: {.column width="50%"}
+![](figs/gradio_name.png)
+
+::::
+:::
+
+## Gradio - 😃
+
+- Very focused on ML
+- Even simpler than Streamlit
+- Built in interfaces for Chat
+  - Easy to add in features like chat history, Thumbs Up/ Thumbs Down
+- Has reactive blocks
+- Can turn it into an API
+
+
+## Gradio - 🫤
+
+- Less flexible than Streamlit
+  - Complicated to do multiple things at once
+- Fewer components available
+  - Sometimes need to use HTML to do what you want
+- All Gradio apps look the same -- even more so than Streamlit
+
+## Gradio - Simplest
+ 
+![](figs/basic_gradio.png){height="6in"}
+
+## Gradio - More Complex
+ 
+![](figs/better_gradio.png){height="6in"}
+
+## Gradio - Deployment Possibilities
+
+- Local / Self-hosted
+- Public Link, local compute (`share=True`)
+- Through Huggingface Spaces (free with basic CPU)
+  - Need a fresh Github Repo
+- In-browser (Gradio Lite)
+  - I couldn't figure it out
+- Use via API
+
+## Shiny
+
+- 2012: Developed for R by the company formerly known as RStudio ![](figs/rstudio_logo.png){height="0.5in"}
+- 2022: ![](figs/posit_logo.png){height="0.5in"}   
+ ![](figs/shiny_python_2nd_best.png){width="6in" fig-align="center"} <!--![](figs/rstudio2posit.png){width="5in"}  -->
+
+
+## Two Types of Shiny?
+
+::: {.columns}
+
+:::: {.column width="45%"}
+
+### Shiny Core
+
+- More similar to RShiny
+  - Split Server vs. UI sections
+  - Outputs are identified explicitly
+- Nested Functions
+
+::::
+
+:::: {.column width="10%"}
+
+
+::::
+
+:::: {.column width="45%"}
+
+### Shiny Express
+
+- Kinda Streamlit-ish
+- No Split between Server and UI sections
+- Heavy use of context managers (`with XXXX:`)
+
+
+::::
+
+:::
+
+## Shiny - 😃
+
+- All Shiny is reactive - great for complex Apps
+- Lots of components
+- Documentation gives really good background/philosophy on how it works
+- Very flexible, can make almost any change you want
+
+## Shiny - 🫤
+
+- I found it confusing, not as intuitive/"Pythonic"
+- Default UI is pretty bland
+- Not as many components as Streamlit
+- You kinda need to learn the philosophy of Shiny before you can do much complicated
+
+## Shiny Example
+
+![](figs/shiny1.png){height="6in"}
+
+## Shiny is building in Chat Components
+
+::: {.columns}
+
+:::: {.column width="50%"}
+
+![](figs/basic_shiny.png)
+
+::::
+
+:::: {.column width="50%"}
+
+Similar to Gradio, Streamlit
+
+::::
+
+:::
+
+
+##  Help is on the way!
+
+::: {.columns}
+
+:::: {.column width="50%"}
+
+### Shiny
+
+{{< video https://shiny.posit.co/blog/posts/shiny-assistant/shiny-assistant.mp4 >}}
+
+::::
+
+:::: {.column width="50%"}
+
+### Gradio
+
+![](figs/gradio_assistant.png)
+::::
+
+:::
+
+## Shinylive
+
+![](figs/shinylive_easy.png){height="6in"}
+
+## Shinylive really is easy!
+
+![](figs/shinylive.png){height="6in"}
+
+## One other option...
+
+If you're going to go in-browser, and what you're doing isn't that complex...
+
+... ChatGPT might be able to build it for you
+
+## Ask ChatGPT to build you an in-browser tool
+
+![](figs/basic_html.png)
+
+## It will then improve it nicely
+
+![](figs/make_it_prettier.png){height="0.75in"}  ![](figs/make_it_prettier2.png){height="0.75in"}
+
+![](figs/better_html.png){height="5in"}
+
+## So What Should I Do?
+
+- If you know one system well, you can probably stay inside it - they can mostly do the same things
+
+## Really, What Should I Do?
+
+```{mermaid}
+%%{init: {'theme': 'default', 'themeVariables': { 'fontSize': '20px', 'fontFamily': 'arial', 'nodeTextColor': '#000000', 'mainBkg': '#f5f5f5' }}}%%
+flowchart LR
+    A[Start] --> B{Running a simple<br>AI model?}
+    B -->|Yes| C[Use Gradio]
+    B -->|No| F{Need complex app with<br>lots of interactive changes?}
+    F -->|Yes| E[Use Shiny]
+    F -->|No| H[Use Streamlit]
+
+    style C fill:#90EE90,color:#000000,font-weight:bold
+    style E fill:#90EE90,color:#000000,font-weight:bold
+    style H fill:#90EE90,color:#000000,font-weight:bold
+    style B fill:#f5f5f5,color:#000000,font-weight:bold
+    style F fill:#f5f5f5,color:#000000,font-weight:bold
+    style A fill:#f5f5f5,color:#000000,font-weight:bold
+```
+
+## But ...
+
+```{mermaid}
+%%{init: {'theme': 'default', 'themeVariables': { 'fontSize': '16px', 'fontFamily': 'arial', 'nodeTextColor': '#000000', 'mainBkg': '#f5f5f5' }}}%%
+flowchart LR
+
+    A([Start])
+    X{Is this a one-off app that<br>can be done in-browser and<br>doesn't need heavy Python?}
+    Y[Just ask an LLM<br>to make it for you]
+    
+    A --> X
+    X -->|Yes| Y
+    X -->|No| B
+        subgraph Python-Frameworks[" "]
+        direction LR
+        B{Running a simple<br>AI model?}
+        B -->|Yes| C[Use Gradio]
+        B -->|No| F{Need complex app with<br>lots of interactive changes?}
+        F -->|Yes| E[Use Shiny]
+        F -->|No| H[Use Streamlit]
+    end
+
+    style C fill:#90EE90,color:#000000,font-weight:bold
+    style H fill:#90EE90,color:#000000,font-weight:bold
+    style Y fill:#90EE90,color:#000000,font-weight:bold,font-size:22px,stroke:#000000,stroke-width:3px,width:300px
+    style B fill:#f5f5f5,color:#000000,font-weight:bold
+    style F fill:#f5f5f5,color:#000000,font-weight:bold
+    style A fill:#f5f5f5,color:#000000,font-weight:bold,fontSize:20px
+    style X fill:#f5f5f5,color:#000000,font-weight:bold
+    
+    style Python-Frameworks stroke-dasharray: 5 5
+
+```
+
+## 
+
+::: {.columns}
+
+
+::::{.column width="50%"}
+### Alan Feder
+
+![](https://github.com/AlanFeder/nyr-rag-app/blob/main/AJF_Headshot.jpg?raw=true){fig-alt="Alan Feder Headshot" width="4in"}
+
+***
+![](figs/email_logo.png){height="0.5in"} [AlanFeder@gmail.com](mailto:AlanFeder@gmail.com)
+![](figs/www_logo.png){height="0.5in"}[https://www.alanfeder.com](https://www.alanfeder.com)
+![](figs/linkedin_logo.png){height="0.5in"} [alanfeder](https://www.linkedin.com/in/alanfeder/)
+::::
+
+:::: {.column width="50%"}
+![](figs/qrcode.png)
+
+- [Code](https://github.com/AlanFeder/rgov-2024/)
+- [Slides](https://www.alanfeder.com/dcr_rag/)
+::::
+:::
