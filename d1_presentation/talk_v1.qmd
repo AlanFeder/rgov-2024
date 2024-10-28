@@ -22,8 +22,9 @@ format:
 -   Alan Feder
 -   Staff LLM Data Scientist at Magnifi / TIFIN
 - Freelance Consultant
+
 - R Expat ![](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/R_logo.svg/1200px-R_logo.svg.png){height="0.5in"}  ![](https://cdn-icons-png.flaticon.com/512/664/664866.png){height="0.5in"}  ![](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png){height="0.5in"}
-- LGM ![](https://upload.wikimedia.org/wikipedia/en/thumb/7/7b/New_York_Mets.svg/1200px-New_York_Mets.svg.png){height="0.5in"}
+- NYC Expat ![](figs/nyc_logo.png){height="0.5in"} ![](https://cdn-icons-png.flaticon.com/512/664/664866.png){height="0.5in"} ![](figs/maryland_logo.png){height="0.5in"}
 :::
 :::
 
@@ -43,7 +44,11 @@ format:
 ::::
 :::
 
-## Python has many more options
+## The Zen of Python
+
+Aphorism #13: **There should be one-- and preferably only one --obvious way to do it.**
+
+## Only one??
 
 ::: {.columns}
 ::: {.column width="33%"}
@@ -52,22 +57,8 @@ format:
 ::::
 
 :::: {.fragment}
-![](figs/gradio_logo.png){height="1.4in" fig-align="center"}
-::::
+![](figs/dash_plotly_logo.png){height="1.4in" fig-align="center"}
 
-:::: {.fragment}
-![](figs/shiny_logo.png){height="1.4in" fig-align="center"}
-::::
-
-:::
-
-::: {.column width="33%"}
-:::: {.fragment}
-![](figs/flask_logo.png){height="1.4in" fig-align="center"}
-::::
-
-:::: {.fragment}
-![](figs/django_logo.png){height="1.4in" fig-align="center"}
 ::::
 
 :::: {.fragment}
@@ -78,15 +69,31 @@ format:
 
 ::: {.column width="33%"}
 :::: {.fragment}
-![](figs/dash_plotly_logo.png){height="1.4in" fig-align="center"}
+![](figs/gradio_logo.png){height="1.4in" fig-align="center"}
+
 ::::
 
 :::: {.fragment}
-![](https://raw.githubusercontent.com/AnswerDotAI/fasthtml/e91b9af04a3e70b0d769f2a4928fdad1f2c67620/nbs/logo.svg){height="1.4in" fig-align="center"}
+![](figs/flask_logo.png){height="1.4in" fig-align="center"}
+::::
+
+:::: {.fragment}
+![](figs/django_logo.png){height="1.4in" fig-align="center"}
+::::
+
+:::
+
+::: {.column width="33%"}
+:::: {.fragment}
+![](figs/shiny_logo.png){height="1.4in" fig-align="center"}
 ::::
 
 :::: {.fragment}
 ![](figs/panel_holoviz_logo.png){height="1.4in" fig-align="center"}
+::::
+
+:::: {.fragment}
+![](https://raw.githubusercontent.com/AnswerDotAI/fasthtml/e91b9af04a3e70b0d769f2a4928fdad1f2c67620/nbs/logo.svg){height="1.4in" fig-align="center"}
 ::::
 :::
 :::
@@ -112,6 +119,8 @@ format:
 - Let's try to make one app with three different methods
 
 - We've already had a lot of different RAG talks this conference - so see how to share your app
+
+  - Previous RGov Talks
  
 ::::
 
@@ -120,9 +129,9 @@ format:
 ## Server vs. Serverless
 
 
-- The computations need to happen _somewhere_ - Python or R needs to be installed somewhere
-  - Setting up servers can be difficult
+- The computations need to happen _somewhere_
 - `localhost:8000` - doesn't help with sharing
+  - Setting up servers can be difficult without software experience
 - In-browser versions can be helpful
   - BE CAREFUL ABOUT YOUR PASSWORDS AND API KEYS
 
@@ -158,8 +167,8 @@ format:
 
 
 - Runs top to bottom - not at all reactive
-  - Has caching, but it gets confusing very quickly
 - Can get very slow if it gets big
+  - Has caching, `session_state`
 - All Streamlit apps kinda look the same
   - Hard to tweak UI
 

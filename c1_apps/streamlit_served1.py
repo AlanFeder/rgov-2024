@@ -2,6 +2,7 @@ import os
 import sys
 
 import streamlit as st
+from streamlit_feedback import streamlit_feedback
 
 # Get the directory of the current script
 current_dir = os.path.dirname(__file__)
@@ -55,6 +56,12 @@ def run_app():
 
             # Display the response
             st.write_stream(response)
+
+            feedback = streamlit_feedback(
+                feedback_type="thumbs",
+                optional_text_label="[Optional] Please provide an explanation",
+            )
+            
 
             st.divider()
             st.subheader("RAG-identified relevant videos")
