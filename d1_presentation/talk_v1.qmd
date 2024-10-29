@@ -9,8 +9,8 @@ format:
     slide-number: true
     footer: "2024 Government & Public Sector R Conference - Alan Feder"
     embed-resources: true
+css: styles.css
 ---
-
 
 ## Who am I?
 
@@ -23,9 +23,9 @@ format:
 -   Alan Feder
 -   Staff LLM Data Scientist at Magnifi / TIFIN
 - Freelance Consultant
+- NYC Expat ![](figs/nyc_logo.png){.center height="0.5in"} ![](https://cdn-icons-png.flaticon.com/512/664/664866.png){.center height="0.5in"} ![](figs/maryland_logo.png){.center height="0.5in"}
+- R Expat ![](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/R_logo.svg/1200px-R_logo.svg.png){.center height="0.5in"}  ![](https://cdn-icons-png.flaticon.com/512/664/664866.png){.center height="0.5in"}  ![](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png){.center height="0.5in"}
 
-- R Expat ![](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/R_logo.svg/1200px-R_logo.svg.png){height="0.5in"}  ![](https://cdn-icons-png.flaticon.com/512/664/664866.png){height="0.5in"}  ![](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png){height="0.5in"}
-- NYC Expat ![](figs/nyc_logo.png){height="0.5in"} ![](https://cdn-icons-png.flaticon.com/512/664/664866.png){height="0.5in"} ![](figs/maryland_logo.png){height="0.5in"}
 :::
 :::
 
@@ -39,15 +39,16 @@ format:
 ::::
 
 :::: {.column width="50%"}
-::::: {.fragment}
+<!-- ::::: {.fragment} -->
 ![](figs/shiny_logo.png)
-:::::
+<!-- ::::: -->
 ::::
 :::
 
 ## The Zen of Python
 
-Aphorism #13: **There should be one-- and preferably only one --obvious way to do it.**
+<!-- Aphorism #13: **There should be one-- and preferably only one --obvious way to do it.** -->
+![](figs/zen_of_python.png){height="6in" fig-align="center"}
 
 ## Only one??
 
@@ -159,6 +160,10 @@ Aphorism #13: **There should be one-- and preferably only one --obvious way to d
 ::::
 :::
 
+## Streamlit Example
+
+[![](figs/streamlit_app1.png){height="6in"}](https://rgov-2024-ajf.streamlit.app/)
+
 ## Streamlit - 😃
 
 
@@ -180,18 +185,8 @@ Aphorism #13: **There should be one-- and preferably only one --obvious way to d
 
 
 
-## Streamlit
 
-::: {.columns}
-:::: {.column width="75%"}
-[![](figs/streamlit_app1.png){height="6in"}](https://rgov-2024-ajf.streamlit.app/)
-::::
 
-:::: {.column width="25%"}
-![](figs/streamlit_host.png)
-::::
-
-:::
 
 ## Streamlit-Lite
 
@@ -225,6 +220,14 @@ Aphorism #13: **There should be one-- and preferably only one --obvious way to d
 ::::
 :::
 
+## Gradio - Simplest
+ 
+[![](figs/basic_gradio.png)](https://huggingface.co/spaces/AlanFeder/RGov_Gradio_App_-_Basic_Chat)
+
+## Gradio - More Complex
+ 
+[![](figs/better_gradio.png){height="6in"}](https://huggingface.co/spaces/AlanFeder/RGov_Gradio_App_-_Better_Chat)
+
 ## Gradio - 😃
 
 - Very focused on AI
@@ -242,13 +245,6 @@ Aphorism #13: **There should be one-- and preferably only one --obvious way to d
   - Sometimes need to use HTML to do what you want
 - All Gradio apps look the same -- at least as much as Streamlit
 
-## Gradio - Simplest
- 
-[![](figs/basic_gradio.png){height="6in"}](https://huggingface.co/spaces/AlanFeder/RGov_Gradio_App_-_Basic_Chat)
-
-## Gradio - More Complex
- 
-[![](figs/better_gradio.png){height="6in"}](https://huggingface.co/spaces/AlanFeder/RGov_Gradio_App_-_Better_Chat)
 
 ## Gradio - Deployment Possibilities
 
@@ -316,6 +312,10 @@ def function():
     ...
 ```
 
+## Shiny Example
+
+![](figs/shiny1.png){ fig-align="center"}
+
 ## Shiny - 😃
 
 - All Shiny is reactive - great for complex Apps
@@ -332,11 +332,9 @@ def function():
 - Not as many components as Streamlit
 - You kinda need to learn the philosophy of Shiny before you can do much complicated
 
-## Shiny Example
 
-![](figs/shiny1.png){height="6in" fig-align="center"}
 
-## Shiny is building in Chat Components
+<!-- ## Shiny is building in Chat Components
 
 ::: {.columns}
 
@@ -352,7 +350,7 @@ Similar to Gradio, Streamlit
 
 ::::
 
-:::
+::: -->
 
 
 ##  Help is on the way!
@@ -363,7 +361,7 @@ Similar to Gradio, Streamlit
 
 ### Shiny
 
-![](figs/shiny_assistant.png)
+[![](figs/shiny_assistant.png)](https://gallery.shinyapps.io/assistant/)
 
 ::::
 
@@ -371,18 +369,18 @@ Similar to Gradio, Streamlit
 
 ### Gradio
 
-![](figs/gradio_assistant.png)
+[![](figs/gradio_assistant.png)](https://www.gradio.app/playground)
 ::::
 
 :::
 
 ## Shinylive
 
-![](figs/shinylive_easy.png){height="6in"}
+[![](figs/shinylive_easy.png)](https://www.youtube.com/watch?v=8SHTj5QYQuc)
 
 ## Shinylive really is easy!
 
-[![](figs/shinylive.png){height="6in"}](https://www.alanfeder.com/dcr_rag/shinylive1/)
+[![](figs/shinylive_example.png){height="6in" fig-align="center"}](https://www.alanfeder.com/dcr_rag/shinylive1/)
 
 ## One other option... 
 
@@ -390,9 +388,9 @@ If you're going to go in-browser, and what you're doing isn't that complex...
 
 . . .
 
-... ChatGPT might be able to build it for you without any of these apps
+... AI might be able to build it for you without any of these apps
 
-## Ask ChatGPT to build you an in-browser tool
+## Ask Claude/ChatGPT to build you an in-browser tool
 
 ![](figs/basic_html.png)
 
@@ -413,7 +411,7 @@ If you're going to go in-browser, and what you're doing isn't that complex...
 
 :::: {.column width="60%"}
 
-[![](figs/better_html.png){height="6in"}](https://www.alanfeder.com/dcr_rag/html_app.html)
+[![](figs/better_html.png)](https://www.alanfeder.com/dcr_rag/html_app.html)
 
 ::::
 
@@ -488,18 +486,22 @@ flowchart LR
 ![](https://github.com/AlanFeder/nyr-rag-app/blob/main/AJF_Headshot.jpg?raw=true){fig-alt="Alan Feder Headshot" width="3in"}
 
 ***
-[![](figs/email_logo.png){height="0.3in"} AlanFeder@gmail.com](mailto:AlanFeder@gmail.com)  
-[![](figs/www_logo.png){height="0.3in"} https://www.alanfeder.com](https://www.alanfeder.com)  
-[![](figs/linkedin_logo.png){height="0.3in"} alanfeder](https://www.linkedin.com/in/alanfeder/)
+[![](figs/email_logo.png){.center height="0.3in"} AlanFeder@gmail.com](mailto:AlanFeder@gmail.com)  
+
+
+[![](figs/www_logo.png){.center height="0.3in"} https://www.alanfeder.com](https://www.alanfeder.com)  
+
+
+[![](figs/linkedin_logo.png){.center height="0.3in"} alanfeder](https://www.linkedin.com/in/alanfeder/)
 
 ::::
 
 :::: {.column width="60%"}
 
 
-- [Code ![](figs/github_logo.png){height="0.3in"}](https://github.com/AlanFeder/rgov-2024/) `AlanFeder/rgov-2024` 
+- [Code ![](figs/github_logo.png){.center height="0.3in"}](https://github.com/AlanFeder/rgov-2024/) `AlanFeder/rgov-2024` 
 - [Slides](https://www.alanfeder.com/dcr_rag/) https://www.alanfeder.com/dcr_rag/  
-![](figs/qrcode.png){height="2.45in" width="2.45in"}
+![](figs/qrcode.png){fig-align="center" height="2.69in" width="2.69in"}
 
 ***
 

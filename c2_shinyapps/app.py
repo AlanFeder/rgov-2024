@@ -204,8 +204,8 @@ ui.tags.style(
 
 ui.page_opts(
     title="Use Shiny to Run RAG on the previous R/Gov Talks",
-    fillable=True,
-    fillable_mobile=True,
+    # fillable=True,
+    # fillable_mobile=True,
 )
 
 ui.h2("RAG on R/Gov Talks", class_="main-title")
