@@ -1,5 +1,6 @@
 ---
-title: "App-solutely Fabulous: A Data Scientist's Guide to Choosing Python Web Tools Wisely"
+title: "App-solutely Fabulous"
+subtitle: "A Data Scientist's Guide to Choosing Python Web Tools Wisely"
 author: "Alan Feder"
 format: 
   revealjs:
@@ -118,7 +119,7 @@ Aphorism #13: **There should be one-- and preferably only one --obvious way to d
 
 - Let's try to make one app with three different methods
 
-- We've already had a lot of different RAG talks this conference - so see how to share your app
+- RAG Chatbot referencing a specific data set
 
   - Previous RGov Talks
  
@@ -133,8 +134,12 @@ Aphorism #13: **There should be one-- and preferably only one --obvious way to d
 - `localhost:8000` - doesn't help with sharing
   - Setting up servers can be difficult without software experience
 - In-browser versions can be helpful
+  - Not all Python packages work
   - BE CAREFUL ABOUT YOUR PASSWORDS AND API KEYS
 
+# Streamlit
+
+![](figs/streamlit_logo.png){fig-align="center"}
 
 ## Streamlit
 
@@ -198,8 +203,9 @@ Aphorism #13: **There should be one-- and preferably only one --obvious way to d
 - I couldn't figure out how to do streaming
 - Slower to load, slower to run
 
-- [Link: In-Browser Streamlit](https://www.alanfeder.com/dcr_rag/streamlit_lite.html)
+# Gradio
 
+![](figs/gradio_logo.png){fig-align="center"}
 
 ## Gradio
 
@@ -208,7 +214,7 @@ Aphorism #13: **There should be one-- and preferably only one --obvious way to d
 
 :::: {.column width="50%"}
 
-- Started by some Stanford PhD Students in 2019
+- Started by  Stanford PhD Students in 2019
 - Purchased by Hugging Face ![](figs/hf_logo.png){height="0.5in"} in December 2021
 - Powers most Huggingface Spaces
 ::::
@@ -221,12 +227,11 @@ Aphorism #13: **There should be one-- and preferably only one --obvious way to d
 
 ## Gradio - 😃
 
-- Very focused on ML
+- Very focused on AI
 - Even simpler than Streamlit
 - Built in interfaces for Chat
   - Easy to add in features like chat history, Thumbs Up/ Thumbs Down
-- Has reactive blocks
-- Can turn it into an API
+- Has reactivity
 
 
 ## Gradio - 🫤
@@ -235,15 +240,15 @@ Aphorism #13: **There should be one-- and preferably only one --obvious way to d
   - Complicated to do multiple things at once
 - Fewer components available
   - Sometimes need to use HTML to do what you want
-- All Gradio apps look the same -- even more so than Streamlit
+- All Gradio apps look the same -- at least as much as Streamlit
 
 ## Gradio - Simplest
  
-![](figs/basic_gradio.png){height="6in"}
+[![](figs/basic_gradio.png){height="6in"}](https://huggingface.co/spaces/AlanFeder/RGov_Gradio_App_-_Basic_Chat)
 
 ## Gradio - More Complex
  
-![](figs/better_gradio.png){height="6in"}
+[![](figs/better_gradio.png){height="6in"}](https://huggingface.co/spaces/AlanFeder/RGov_Gradio_App_-_Better_Chat)
 
 ## Gradio - Deployment Possibilities
 
@@ -251,7 +256,11 @@ Aphorism #13: **There should be one-- and preferably only one --obvious way to d
 - Public Link, local compute (`share=True`)
 - Through Huggingface Spaces (free with basic CPU)
 - In-browser (Gradio Lite)
-  - I couldn't figure it out
+  - I couldn't figure it out for complex app
+
+# Shiny
+
+![](figs/shiny_moana.png){fig-align="center" height="3.4in"}
 
 ## Shiny
 
@@ -260,7 +269,7 @@ Aphorism #13: **There should be one-- and preferably only one --obvious way to d
  ![](figs/shiny_python_2nd_best.png){width="6in" fig-align="center"} <!--![](figs/rstudio2posit.png){width="5in"}  -->
 
 
-## Two Types of Shiny
+## Two Types of Shiny {.smaller}
 
 ::: {.columns}
 
@@ -268,10 +277,12 @@ Aphorism #13: **There should be one-- and preferably only one --obvious way to d
 
 ### Shiny Core
 
+
 - More similar to RShiny
-  - Split Server vs. UI sections
-  - Outputs are identified explicitly
+- Split Server vs. UI sections
+  - Only one file
 - Nested Functions
+
 
 ::::
 
@@ -284,23 +295,35 @@ Aphorism #13: **There should be one-- and preferably only one --obvious way to d
 
 ### Shiny Express
 
+
 - Kinda Streamlit-ish
 - No Split between Server and UI sections
-- Heavy use of context managers (`with XXXX:`)
+- Heavy use of context managers 
 
-
+```{.python code-line-numbers="1"}
+with ui.row():
+  XXXX
+```
 ::::
 
 :::
+![](figs/horizontal-line.svg)
+
+- Use of decorators
+```{.python code-line-numbers="1"}
+@reactive.text
+def function():
+    ...
+```
 
 ## Shiny - 😃
 
 - All Shiny is reactive - great for complex Apps
+- Very flexible, can make almost any change you want
 - Lots of components
 - Documentation gives really good background/philosophy on how it works
-- Very flexible, can make almost any change you want
 
-![](figs/shiny_moana.png){height="2in"}
+<!-- ![](figs/shiny_moana.png){height="2in"} -->
 
 ## Shiny - 🫤
 
@@ -319,7 +342,7 @@ Aphorism #13: **There should be one-- and preferably only one --obvious way to d
 
 :::: {.column width="50%"}
 
-![](figs/basic_shiny.png)
+[![](figs/basic_shiny.png)](https://huggingface.co/spaces/AlanFeder/RGov-2024-Shiny_v1)
 
 ::::
 
@@ -359,13 +382,15 @@ Similar to Gradio, Streamlit
 
 ## Shinylive really is easy!
 
-![](figs/shinylive.png){height="6in"}
+[![](figs/shinylive.png){height="6in"}](https://www.alanfeder.com/dcr_rag/shinylive1/)
 
-## One other option...
+## One other option... 
 
 If you're going to go in-browser, and what you're doing isn't that complex...
 
-... ChatGPT might be able to build it for you
+. . .
+
+... ChatGPT might be able to build it for you without any of these apps
 
 ## Ask ChatGPT to build you an in-browser tool
 
@@ -373,13 +398,30 @@ If you're going to go in-browser, and what you're doing isn't that complex...
 
 ## It will then improve it nicely
 
-![](figs/make_it_prettier.png){height="0.75in"}  ![](figs/make_it_prettier2.png){height="0.75in"}
+::: {.columns}
 
-![](figs/better_html.png){height="5in"}
+:::: {.column width="40%"}
+
+![](figs/make_it_prettier.png)
+
+
+
+![](figs/make_it_prettier2.png)
+
+::::
+
+
+:::: {.column width="60%"}
+
+[![](figs/better_html.png){height="6in"}](https://www.alanfeder.com/dcr_rag/html_app.html)
+
+::::
+
+:::
 
 ## So What Should I Do?
 
-- If you know one system well, you can probably stay inside it - they can mostly do the same things
+If you know one tool well, you can use it for most things - they overlap a lot.
 
 ## Really, What Should I Do?
 
@@ -403,7 +445,7 @@ flowchart LR
 ## But ...
 
 ```{mermaid}
-%%{init: {'theme': 'default', 'themeVariables': { 'fontSize': '16px', 'fontFamily': 'arial', 'nodeTextColor': '#000000', 'mainBkg': '#f5f5f5' }}}%%
+%%{init: {'theme': 'default', 'themeVariables': { 'fontSize': '16px', 'fontFamily': 'arial', 'nodeTextColor': '#000000', 'mainBkg': '#f5f5f5', 'labelBackgroundColor': 'transparent' }}}%%
 flowchart LR
 
     A([Start])
@@ -425,36 +467,48 @@ flowchart LR
     style C fill:#90EE90,color:#000000,font-weight:bold
     style H fill:#90EE90,color:#000000,font-weight:bold
     style E fill:#90EE90,color:#000000,font-weight:bold
-    style Y fill:#90EE90,color:#000000,font-weight:bold,font-size:22px,stroke:#000000,stroke-width:3px,width:350px,height:100px
+    style Y fill:#90EE90,color:#000000,font-weight:bold,font-size:16px,stroke:#000000,stroke-width:3px
     style B fill:#f5f5f5,color:#000000,font-weight:bold
     style F fill:#f5f5f5,color:#000000,font-weight:bold
     style A fill:#f5f5f5,color:#000000,font-weight:bold,fontSize:20px
     style X fill:#f5f5f5,color:#000000,font-weight:bold
     
     style Python-Frameworks fill:#e0e0e0,stroke-dasharray: 5 5
-
 ```
 
-## 
+## {.smaller}
 
 ::: {.columns}
 
 
-::::{.column width="50%"}
-### Alan Feder
+:::: {.column width="40%"}
+### Alan Feder 
 
-![](https://github.com/AlanFeder/nyr-rag-app/blob/main/AJF_Headshot.jpg?raw=true){fig-alt="Alan Feder Headshot" width="4in"}
+
+![](https://github.com/AlanFeder/nyr-rag-app/blob/main/AJF_Headshot.jpg?raw=true){fig-alt="Alan Feder Headshot" width="3in"}
 
 ***
-![](figs/email_logo.png){height="0.5in"} [AlanFeder@gmail.com](mailto:AlanFeder@gmail.com)
-![](figs/www_logo.png){height="0.5in"}[https://www.alanfeder.com](https://www.alanfeder.com)
-![](figs/linkedin_logo.png){height="0.5in"} [alanfeder](https://www.linkedin.com/in/alanfeder/)
+[![](figs/email_logo.png){height="0.3in"} AlanFeder@gmail.com](mailto:AlanFeder@gmail.com)  
+[![](figs/www_logo.png){height="0.3in"} https://www.alanfeder.com](https://www.alanfeder.com)  
+[![](figs/linkedin_logo.png){height="0.3in"} alanfeder](https://www.linkedin.com/in/alanfeder/)
+
 ::::
 
-:::: {.column width="50%"}
-![](figs/qrcode.png)
+:::: {.column width="60%"}
 
-- [Code](https://github.com/AlanFeder/rgov-2024/)
-- [Slides](https://www.alanfeder.com/dcr_rag/)
+
+- [Code ![](figs/github_logo.png){height="0.3in"}](https://github.com/AlanFeder/rgov-2024/) `AlanFeder/rgov-2024` 
+- [Slides](https://www.alanfeder.com/dcr_rag/) https://www.alanfeder.com/dcr_rag/  
+![](figs/qrcode.png){height="2.45in" width="2.45in"}
+
+***
+
+| Tool | Basic | Complex | Lite |
+|------|--------|---------|------------|
+| Streamlit |  | [Link](https://rgov-2024-ajf.streamlit.app/) | [Link](https://www.alanfeder.com/dcr_rag/streamlit_lite.html) |
+| Gradio | [Link](https://huggingface.co/spaces/AlanFeder/RGov_Gradio_App_-_Basic_Chat) | [Link](https://huggingface.co/spaces/AlanFeder/RGov_Gradio_App_-_Better_Chat) |  |
+| Shiny | | [Link](https://huggingface.co/spaces/AlanFeder/RGov-2024-Shiny_v1) | [Link](https://www.alanfeder.com/dcr_rag/shinylive1/) |
+| LLM/HTML | | | [Link](https://www.alanfeder.com/dcr_rag/html_app.html) |
+
 ::::
 :::
