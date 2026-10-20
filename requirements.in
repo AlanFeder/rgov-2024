@@ -1,0 +1,16 @@
+# Dependencies for the served Streamlit, Shiny, and Gradio clients.
+requests>=2.33.0,<3
+streamlit>=1.55,<1.56
+numpy>=1.26.4,<2
+streamlit-feedback>=0.1.4,<1
+pyprojroot>=0.3,<0.4
+gradio>=6,<7
+shiny>=1.5,<2
+anyio>=4.14.2
+GitPython>=3.1.62
+pillow>=12.3.0,<13
+pyarrow>=23.0.1,<24
+protobuf>=5.29.6
+idna>=3.15
+tornado>=6.5.9
+urllib3>=2.8.0
