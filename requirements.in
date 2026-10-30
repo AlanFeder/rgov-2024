@@ -12,5 +12,5 @@ pillow>=12.3.0,<13
 pyarrow>=23.0.1,<24
 protobuf>=5.29.6
 idna>=3.15
-tornado>=6.5.9
+tornado>=6.6
 urllib3>=2.8.0
